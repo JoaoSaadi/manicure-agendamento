@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Painel Admin — Manicure</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; min-height: 100vh; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+      min-height: 100vh; padding: 12px;
+    }
+    .card {
+      background: #fff; border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(176,0,80,.15);
+      width: 100%; max-width: 480px;
+      margin: 0 auto; padding: 24px 20px;
+    }
+    .header { text-align: center; margin-bottom: 24px; }
+    .header img { width: 160px; height: auto; margin-bottom: 4px; }
+    .header h1 { color: #880e4f; font-size: 22px; margin: 6px 0 3px; }
+    .header p  { color: #aaa; font-size: 14px; }
+
+    .tela-senha { text-align: center; }
+    .tela-senha .icone-lock { font-size: 52px; margin-bottom: 12px; }
+    .tela-senha h2 { color: #880e4f; font-size: 20px; margin-bottom: 6px; }
+    .tela-senha p  { color: #aaa; font-size: 14px; margin-bottom: 20px; }
+    .campo-senha { display: flex; gap: 8px; margin-bottom: 12px; }
+    .campo-senha input {
+      flex: 1; padding: 14px; border: 1.5px solid #f48fb1;
+      border-radius: 12px; font-size: 16px; color: #333; background: #fff5f8; outline: none;
+    }
+    .campo-senha input:focus { border-color: #ad1457; }
+    .btn-entrar {
+      padding: 14px 20px; background: #ad1457; color: #fff;
+      border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer;
+    }
+    .btn-entrar:hover { background: #880e4f; }
+    .erro-senha { color: #c62828; font-size: 14px; margin-top: 8px; display: none; }
+
+    .tela-painel { display: none; }
+    .secao-titulo { font-size: 15px; font-weight: 700; color: #880e4f; margin-bottom: 12px; }
+
+    .select-wrapper { position: relative; margin-bottom: 16px; }
+    .select-mes {
+      width: 100%; padding: 15px 44px 15px 16px;
+      border: 1.5px solid #f48fb1; border-radius: 12px;
+      font-size: 16px; font-weight: 600; color: #880e4f;
+      background: #fff5f8; cursor: pointer;
+      appearance: none; -webkit-appearance: none; outline: none;
+    }
+    .select-mes:focus { border-color: #ad1457; background: #fce4ec; }
+    .select-arrow { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #ad1457; pointer-events: none; }
+
+    .btn-ver-dias {
+      width: 100%; padding: 15px; background: #ad1457; color: #fff;
+      border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: background .2s; margin-bottom: 20px;
+    }
+    .btn-ver-dias:hover { background: #880e4f; }
+
+    .grade-dias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+    .btn-dia {
+      padding: 14px 6px; border: 1.5px solid #f8bbd0; border-radius: 10px;
+      background: #fff5f8; cursor: pointer; transition: all .15s; text-align: center;
+    }
+    .btn-dia:hover, .btn-dia.selecionado { border-color: #ad1457; background: #fce4ec; }
+    .btn-dia .num-dia  { font-size: 24px; font-weight: 700; color: #333; }
+    .btn-dia .nome-dia { font-size: 12px; color: #ad1457; margin-top: 2px; }
+    .btn-dia .qtd-ag   { font-size: 11px; color: #888; margin-top: 3px; }
+    .btn-dia.tem-ag .num-dia { color: #ad1457; }
+
+    .resumos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+    .resumo-card { background: #fce4ec; border-radius: 14px; padding: 16px 10px; text-align: center; }
+    .resumo-card .num  { font-size: 26px; font-weight: 700; color: #880e4f; }
+    .resumo-card .desc { font-size: 12px; color: #888; margin-top: 3px; }
+
+    .lista-agendamentos { display: flex; flex-direction: column; gap: 10px; }
+    .card-ag { border-radius: 12px; padding: 16px; border: 1.5px solid #f8bbd0; }
+    .card-ag.ocupado { background: #fff5f8; border-color: #f48fb1; }
+    .card-ag.livre   { background: #f5f5f5; border-color: #e0e0e0; opacity: .7; }
+    .card-ag .ag-hora     { font-size: 17px; font-weight: 700; color: #880e4f; }
+    .card-ag .ag-data     { font-size: 13px; color: #888; margin-bottom: 8px; }
+    .card-ag .ag-cliente  { font-size: 15px; font-weight: 700; color: #333; }
+    .card-ag .ag-servico  { font-size: 14px; color: #555; margin-top: 2px; }
+    .card-ag .ag-whatsapp { font-size: 13px; color: #6a1b9a; margin-top: 2px; }
+    .badge-livre { display: inline-block; padding: 4px 12px; border-radius: 20px; background: #e0e0e0; color: #888; font-size: 12px; font-weight: 600; }
+    .badge-dom   { display: inline-block; padding: 3px 8px; border-radius: 20px; background: #f3e5f5; color: #6a1b9a; font-size: 12px; margin-left: 6px; }
+
+    .btn-cancel-adm {
+      margin-top: 10px; padding: 9px 16px;
+      background: none; border: 1.5px solid #c62828;
+      border-radius: 8px; color: #c62828; font-size: 13px;
+      font-weight: 600; cursor: pointer;
+    }
+    .btn-cancel-adm:hover { background: #ffebee; }
+
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.4);
+      display: flex; align-items: center; justify-content: center; z-index: 999;
+    }
+    .modal-box {
+      background: #fff; border-radius: 16px; padding: 28px 22px;
+      max-width: 320px; width: 90%; text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,.2);
+    }
+    .modal-box .modal-icone  { font-size: 40px; margin-bottom: 10px; }
+    .modal-box .modal-titulo { font-size: 17px; font-weight: 700; color: #333; margin-bottom: 8px; }
+    .modal-box .modal-texto  { font-size: 14px; color: #777; margin-bottom: 22px; line-height: 1.5; }
+    .modal-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .modal-btn-voltar { padding: 13px; border: 1.5px solid #e0e0e0; border-radius: 10px; background: #fff; color: #555; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .modal-btn-voltar:hover { background: #f5f5f5; }
+    .modal-btn-confirmar { padding: 13px; border: none; border-radius: 10px; background: #c62828; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .modal-btn-confirmar:hover { background: #b71c1c; }
+
+    .loading { text-align: center; padding: 28px 0; color: #bbb; font-size: 15px; }
+    .vazio   { text-align: center; padding: 28px 0; color: #bbb; font-size: 15px; }
+    .btn-sair { width: 100%; margin-top: 20px; padding: 12px; background: none; border: 1.5px solid #e0e0e0; border-radius: 10px; color: #888; font-size: 14px; cursor: pointer; }
+    .btn-sair:hover { background: #f5f5f5; }
+    .btn-voltar-site { width: 100%; margin-top: 10px; padding: 12px; background: none; border: 1.5px solid #f48fb1; border-radius: 10px; color: #ad1457; font-size: 14px; cursor: pointer; font-weight: 600; }
+    .btn-voltar-site:hover { background: #fce4ec; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <img src="https://lh3.googleusercontent.com/d/18jG8CrOKr6H9wtJDwZYdtQlZXLH2jryZ" alt="Logo Manicure">
+    <h1>Painel Admin</h1>
+    <p>Área exclusiva da proprietária</p>
+  </div>
+
+  <div class="tela-senha" id="tela-senha">
+    <div class="icone-lock">🔒</div>
+    <h2>Acesso restrito</h2>
+    <p>Digite a senha para entrar no painel</p>
+    <div class="campo-senha">
+      <input type="password" id="inp-senha" placeholder="Senha" onkeydown="if(event.key==='Enter') entrar()" />
+      <button class="btn-entrar" onclick="entrar()">Entrar</button>
+    </div>
+    <div class="erro-senha" id="erro-senha">❌ Senha incorreta. Tente novamente.</div>
+  </div>
+
+  <div class="tela-painel" id="tela-painel">
+    <div id="sec-mes">
+      <div class="secao-titulo">📅 Qual mês você quer conferir?</div>
+      <div class="select-wrapper">
+        <select class="select-mes" id="adm-mes"></select>
+        <span class="select-arrow">▾</span>
+      </div>
+      <button class="btn-ver-dias" onclick="buscarDias()">Ver dias →</button>
+    </div>
+
+    <div id="sec-dias" style="display:none">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+        <button class="btn-cancel-adm" style="margin-top:0" onclick="voltarMes()">← Voltar</button>
+        <div class="secao-titulo" style="margin:0">📆 <span id="txt-mes-adm"></span></div>
+      </div>
+      <div class="grade-dias" id="grade-dias-adm"></div>
+    </div>
+
+    <div id="sec-lista" style="display:none">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+        <button class="btn-cancel-adm" style="margin-top:0" onclick="voltarDias()">← Voltar</button>
+        <div class="secao-titulo" style="margin:0">📋 <span id="txt-dia-adm"></span></div>
+      </div>
+      <div class="resumos">
+        <div class="resumo-card"><div class="num" id="res-total">—</div><div class="desc">Agendados</div></div>
+        <div class="resumo-card"><div class="num" id="res-livres">—</div><div class="desc">Livres</div></div>
+        <div class="resumo-card"><div class="num" id="res-valor">—</div><div class="desc">Faturamento</div></div>
+      </div>
+      <div class="lista-agendamentos" id="lista-ag"></div>
+    </div>
+
+    <button class="btn-sair" onclick="sair()">Sair do painel</button>
+    <button class="btn-voltar-site" onclick="window.location.href='index.html'">← Voltar ao site</button>
+  </div>
+
+  <div class="modal-overlay" id="modal-cancelar" style="display:none">
+    <div class="modal-box">
+      <div class="modal-icone">🗑️</div>
+      <div class="modal-titulo">Cancelar agendamento?</div>
+      <div class="modal-texto">O horário ficará disponível novamente.</div>
+      <div class="modal-btns">
+        <button class="modal-btn-voltar" onclick="fecharModal()">Não, voltar</button>
+        <button class="modal-btn-confirmar" id="modal-btn-sim" onclick="confirmarCancelamento()">Sim, cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+  import { getFirestore, collection, doc, getDocs, setDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBto9cKCwXG4HsA3cM6JFpf9VHpSfCOIfI",
+    authDomain: "manicure-agendamento.firebaseapp.com",
+    projectId: "manicure-agendamento",
+    storageBucket: "manicure-agendamento.firebasestorage.app",
+    messagingSenderId: "424235173230",
+    appId: "1:424235173230:web:6b1a032195d181e527ad7f"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+
+  const SENHA    = "manicure2026";
+  const SERVICOS = { "Pé": 35, "Mão": 25, "Cutícula": 20, "Pé e Mão": 60 };
+  const TAXA_DOM = 10;
+  const HORARIOS = ["08:00–10:00","10:00–12:00","12:00–14:00","14:00–16:00","16:00–18:00"];
+  const MESES    = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  const NOMES_DIAS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+
+  let _dadosCancelamento = null;
+  let _agendamentosDia   = [];
+
+  function nomeDia(dataStr) {
+    const [d, m] = dataStr.split('/');
+    return NOMES_DIAS[new Date(2026, Number(m)-1, Number(d), 12).getDay()];
+  }
+
+  // Monta dropdown de meses
+  (function() {
+    const mesHoje = new Date().getMonth() + 1;
+    let html = '';
+    for (let m = mesHoje; m <= 12; m++) {
+      html += `<option value="${m}">${MESES[m-1]} 2026</option>`;
+    }
+    document.getElementById('adm-mes').innerHTML = html;
+  })();
+
+  window.entrar = () => {
+    const senha = document.getElementById('inp-senha').value.trim();
+    if (senha === SENHA) {
+      document.getElementById('tela-senha').style.display = 'none';
+      document.getElementById('tela-painel').style.display = 'block';
+    } else {
+      document.getElementById('erro-senha').style.display = 'block';
+      document.getElementById('inp-senha').value = '';
+    }
+  };
+
+  window.sair = () => {
+    document.getElementById('tela-painel').style.display = 'none';
+    document.getElementById('tela-senha').style.display = 'block';
+    document.getElementById('inp-senha').value = '';
+    document.getElementById('erro-senha').style.display = 'none';
+    mostrarSec('mes');
+  };
+
+  function mostrarSec(qual) {
+    document.getElementById('sec-mes').style.display   = qual === 'mes'   ? 'block' : 'none';
+    document.getElementById('sec-dias').style.display  = qual === 'dias'  ? 'block' : 'none';
+    document.getElementById('sec-lista').style.display = qual === 'lista' ? 'block' : 'none';
+  }
+
+  window.voltarMes  = () => mostrarSec('mes');
+  window.voltarDias = () => mostrarSec('dias');
+
+  window.buscarDias = async () => {
+    const mes = Number(document.getElementById('adm-mes').value);
+    document.getElementById('txt-mes-adm').textContent = `${MESES[mes-1]} 2026`;
+    document.getElementById('grade-dias-adm').innerHTML = '<div class="loading">⏳ Buscando dias…</div>';
+    mostrarSec('dias');
+
+    try {
+      const snap = await getDocs(collection(db, 'agendamentos'));
+      const agendamentos = {};
+      snap.forEach(d => {
+        const a = d.data();
+        if (!a.data) return;
+        const [dd, mm] = a.data.split('/');
+        if (Number(mm) !== mes) return;
+        if (!agendamentos[a.data]) agendamentos[a.data] = { total: 0, ocupados: 0 };
+        agendamentos[a.data].total++;
+        if (a.cliente) agendamentos[a.data].ocupados++;
+      });
+
+      // Adiciona dias sem agendamentos
+      const diasNoMes = new Date(2026, mes, 0).getDate();
+      for (let dia = 1; dia <= diasNoMes; dia++) {
+        const data = new Date(2026, mes-1, dia, 12);
+        if (data.getDay() === 0) continue;
+        const dd = String(dia).padStart(2,'0');
+        const mm = String(mes).padStart(2,'0');
+        const dataStr = `${dd}/${mm}`;
+        if (!agendamentos[dataStr]) agendamentos[dataStr] = { total: HORARIOS.length, ocupados: 0 };
+      }
+
+      const datas = Object.keys(agendamentos).sort();
+      if (!datas.length) {
+        document.getElementById('grade-dias-adm').innerHTML = '<div class="vazio">Nenhum dia encontrado.</div>';
+        return;
+      }
+      let html = '';
+      datas.forEach(data => {
+        const d = agendamentos[data];
+        const num = data.split('/')[0];
+        const nd  = nomeDia(data);
+        const temAg = d.ocupados > 0 ? 'tem-ag' : '';
+        html += `<button class="btn-dia ${temAg}" onclick="escolherDia('${data}','${nd}')">
+          <div class="num-dia">${num}</div>
+          <div class="nome-dia">${nd}</div>
+          <div class="qtd-ag">${d.ocupados}/${d.total} ag.</div>
+        </button>`;
+      });
+      document.getElementById('grade-dias-adm').innerHTML = html;
+    } catch(e) {
+      document.getElementById('grade-dias-adm').innerHTML = `<div class="vazio">Erro: ${e.message}</div>`;
+    }
+  };
+
+  window.escolherDia = async (data, diaSemana) => {
+    document.querySelectorAll('.btn-dia').forEach(b => b.classList.remove('selecionado'));
+    event.currentTarget.classList.add('selecionado');
+    document.getElementById('txt-dia-adm').textContent = `${data} · ${diaSemana}`;
+    mostrarSec('lista');
+    document.getElementById('lista-ag').innerHTML = '<div class="loading">⏳ Carregando…</div>';
+
+    try {
+      const [dd, mm] = data.split('/');
+      _agendamentosDia = [];
+
+      for (const hora of HORARIOS) {
+        const id   = `2026-${mm}-${dd}_${hora.replace(':','').replace('–','-')}`;
+        const snap = await getDocs(collection(db, 'agendamentos'));
+        let ag = null;
+        snap.forEach(d => { if (d.id === id) ag = { ...d.data(), id: d.id }; });
+        _agendamentosDia.push({ id, horario: hora, data, diaSemana, ...( ag || {} ) });
+      }
+
+      const ocupados = _agendamentosDia.filter(a => a.cliente);
+      const livres   = _agendamentosDia.filter(a => !a.cliente);
+      let total = 0;
+      ocupados.forEach(a => {
+        total += (SERVICOS[a.servico] || 0) + (a.domicilio === 'Sim' ? TAXA_DOM : 0);
+      });
+
+      document.getElementById('res-total').textContent  = ocupados.length;
+      document.getElementById('res-livres').textContent = livres.length;
+      document.getElementById('res-valor').textContent  = total > 0 ? `R$ ${total},00` : '—';
+
+      let html = '';
+      _agendamentosDia.forEach(a => {
+        if (a.cliente) {
+          html += `<div class="card-ag ocupado" id="cadm-${a.id}">
+            <div class="ag-hora">${a.horario}</div>
+            <div class="ag-data">📅 ${a.data} · ${a.diaSemana}</div>
+            <div class="ag-cliente">👤 ${a.cliente}</div>
+            <div class="ag-servico">💅 ${a.servico}${a.domicilio === 'Sim' ? '<span class="badge-dom">🏠 Domicílio</span>' : ''}</div>
+            ${a.whatsapp ? `<div class="ag-whatsapp">📱 ${a.whatsapp}</div>` : ''}
+            <button class="btn-cancel-adm" onclick="cancelarAdmin('${a.id}')">🗑️ Cancelar</button>
+          </div>`;
+        } else {
+          html += `<div class="card-ag livre">
+            <div class="ag-hora">${a.horario}</div>
+            <span class="badge-livre">Horário livre</span>
+          </div>`;
+        }
+      });
+      document.getElementById('lista-ag').innerHTML = html || '<div class="vazio">Nenhum horário encontrado.</div>';
+    } catch(e) {
+      document.getElementById('lista-ag').innerHTML = `<div class="vazio">Erro: ${e.message}</div>`;
+    }
+  };
+
+  window.cancelarAdmin = (id) => {
+    _dadosCancelamento = { id };
+    document.getElementById('modal-cancelar').style.display = 'flex';
+  };
+
+  window.fecharModal = () => {
+    document.getElementById('modal-cancelar').style.display = 'none';
+    _dadosCancelamento = null;
+  };
+
+  window.confirmarCancelamento = async () => {
+    if (!_dadosCancelamento) return;
+    const btnSim = document.getElementById('modal-btn-sim');
+    btnSim.disabled = true; btnSim.textContent = '⏳ Cancelando…';
+    try {
+      await setDoc(doc(db, 'agendamentos', _dadosCancelamento.id), { cliente: '', servico: '', domicilio: '', whatsapp: '', email: '' });
+      btnSim.disabled = false; btnSim.textContent = 'Sim, cancelar';
+      fecharModal();
+      const card = document.getElementById(`cadm-${_dadosCancelamento.id}`);
+      if (card) {
+        card.className = 'card-ag livre';
+        card.innerHTML = `<div class="ag-hora">${_dadosCancelamento.id.split('_')[1]}</div><span class="badge-livre">Horário livre</span>`;
+      }
+    } catch(e) {
+      btnSim.disabled = false; btnSim.textContent = 'Sim, cancelar';
+      fecharModal(); alert('Erro: ' + e.message);
+    }
+  };
+</script>
+</body>
+</html>
