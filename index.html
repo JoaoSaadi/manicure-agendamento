@@ -23,21 +23,14 @@
     .header h1 { color: #880e4f; font-size: 22px; margin: 6px 0 3px; }
     .header p  { color: #aaa; font-size: 14px; }
     .modos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
-    .btn-modo {
-      padding: 16px 8px; border: 1.5px solid #f8bbd0; border-radius: 12px;
-      background: #fff5f8; cursor: pointer; text-align: center; transition: all .15s;
-    }
+    .btn-modo { padding: 16px 8px; border: 1.5px solid #f8bbd0; border-radius: 12px; background: #fff5f8; cursor: pointer; text-align: center; transition: all .15s; }
     .btn-modo:hover { border-color: #ad1457; background: #fce4ec; }
     .btn-modo .icone-modo { font-size: 26px; display: block; margin-bottom: 6px; }
     .btn-modo .label-modo { font-size: 14px; font-weight: 700; color: #880e4f; display: block; }
     .btn-modo .sub-modo   { font-size: 12px; color: #888; display: block; margin-top: 2px; }
     .passos { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 24px; }
     .passo  { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .passo .bolinha {
-      width: 34px; height: 34px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: 700; background: #f0f0f0; color: #bbb; transition: all .3s;
-    }
+    .passo .bolinha { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; background: #f0f0f0; color: #bbb; transition: all .3s; }
     .passo .rotulo { font-size: 12px; color: #bbb; transition: color .3s; white-space: nowrap; }
     .passo.ativo .bolinha { background: #ad1457; color: #fff; }
     .passo.ativo .rotulo  { color: #ad1457; font-weight: 600; }
@@ -49,42 +42,22 @@
     .secao.visivel { display: block; }
     .secao-titulo { font-size: 15px; font-weight: 700; color: #880e4f; margin-bottom: 12px; }
     .select-wrapper { position: relative; margin-bottom: 16px; }
-    .select-mes {
-      width: 100%; padding: 15px 44px 15px 16px;
-      border: 1.5px solid #f48fb1; border-radius: 12px;
-      font-size: 16px; font-weight: 600; color: #880e4f;
-      background: #fff5f8; cursor: pointer;
-      appearance: none; -webkit-appearance: none; outline: none; transition: border-color .2s;
-    }
+    .select-mes { width: 100%; padding: 15px 44px 15px 16px; border: 1.5px solid #f48fb1; border-radius: 12px; font-size: 16px; font-weight: 600; color: #880e4f; background: #fff5f8; cursor: pointer; appearance: none; -webkit-appearance: none; outline: none; transition: border-color .2s; }
     .select-mes:focus { border-color: #ad1457; background: #fce4ec; }
     .select-arrow { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #ad1457; pointer-events: none; }
-    .btn-ver-horarios {
-      width: 100%; padding: 15px; background: #ad1457; color: #fff;
-      border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
-      cursor: pointer; transition: background .2s;
-    }
+    .btn-ver-horarios { width: 100%; padding: 15px; background: #ad1457; color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background .2s; }
     .btn-ver-horarios:hover { background: #880e4f; }
     .grade-dias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .btn-dia {
-      padding: 14px 6px; border: 1.5px solid #f8bbd0; border-radius: 10px;
-      background: #fff5f8; cursor: pointer; transition: all .15s; text-align: center;
-    }
+    .btn-dia { padding: 14px 6px; border: 1.5px solid #f8bbd0; border-radius: 10px; background: #fff5f8; cursor: pointer; transition: all .15s; text-align: center; }
     .btn-dia:hover, .btn-dia.selecionado { border-color: #ad1457; background: #fce4ec; }
     .btn-dia .num-dia   { font-size: 24px; font-weight: 700; color: #333; }
     .btn-dia .nome-dia  { font-size: 12px; color: #ad1457; margin-top: 2px; }
     .btn-dia .qtd-slots { font-size: 11px; color: #888; margin-top: 3px; }
     .grade-horarios { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .btn-hora {
-      padding: 15px 8px; border: 1.5px solid #f8bbd0; border-radius: 10px;
-      background: #fff5f8; cursor: pointer; transition: all .15s; text-align: center;
-      font-size: 15px; font-weight: 600; color: #333;
-    }
+    .btn-hora { padding: 15px 8px; border: 1.5px solid #f8bbd0; border-radius: 10px; background: #fff5f8; cursor: pointer; transition: all .15s; text-align: center; font-size: 15px; font-weight: 600; color: #333; }
     .btn-hora:hover, .btn-hora.selecionado { border-color: #ad1457; background: #fce4ec; color: #ad1457; }
     .grade-servicos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
-    .btn-servico {
-      padding: 16px 8px; border: 1.5px solid #f8bbd0; border-radius: 12px;
-      background: #fff5f8; cursor: pointer; transition: all .15s; text-align: center;
-    }
+    .btn-servico { padding: 16px 8px; border: 1.5px solid #f8bbd0; border-radius: 12px; background: #fff5f8; cursor: pointer; transition: all .15s; text-align: center; }
     .btn-servico:hover, .btn-servico.selecionado { border-color: #ad1457; background: #fce4ec; }
     .btn-servico .nome-serv  { font-size: 15px; font-weight: 700; color: #333; display: block; }
     .btn-servico .preco-serv { font-size: 14px; color: #ad1457; margin-top: 4px; display: block; }
@@ -92,19 +65,13 @@
     .btn-voltar:hover { text-decoration: underline; }
     .campo { margin-bottom: 16px; }
     .campo label { display: block; font-size: 13px; color: #555; margin-bottom: 6px; font-weight: 700; }
-    .campo input {
-      width: 100%; padding: 13px 14px; border: 1.5px solid #e0e0e0;
-      border-radius: 10px; font-size: 15px; color: #333; background: #fafafa; transition: border-color .2s;
-    }
+    .campo input { width: 100%; padding: 13px 14px; border: 1.5px solid #e0e0e0; border-radius: 10px; font-size: 15px; color: #333; background: #fafafa; transition: border-color .2s; }
     .campo input:focus { outline: none; border-color: #ad1457; background: #fff; }
     .resumo-agendamento { background: #fce4ec; border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
     .resumo-agendamento .linha-resumo { display: flex; justify-content: space-between; font-size: 14px; color: #555; margin-bottom: 4px; }
     .resumo-agendamento .linha-resumo:last-child { margin-bottom: 0; }
     .resumo-agendamento .linha-resumo strong { color: #880e4f; }
-    .campo-domicilio {
-      display: flex; align-items: center; justify-content: space-between;
-      background: #f8f8f8; border-radius: 10px; padding: 14px; margin-bottom: 16px; border: 1.5px solid #f0f0f0;
-    }
+    .campo-domicilio { display: flex; align-items: center; justify-content: space-between; background: #f8f8f8; border-radius: 10px; padding: 14px; margin-bottom: 16px; border: 1.5px solid #f0f0f0; }
     .campo-domicilio .texto strong { font-size: 15px; color: #333; display: block; }
     .campo-domicilio .texto span   { font-size: 13px; color: #888; }
     .toggle { position: relative; display: inline-block; width: 48px; height: 26px; }
@@ -237,9 +204,7 @@
         <label>E-mail (opcional — para receber confirmação)</label>
         <input type="email" id="inp-email" placeholder="Ex: maria@email.com" />
       </div>
-      <button class="btn-confirmar" id="btn-confirmar" onclick="confirmarAgendamento()">
-        ✅ Confirmar agendamento
-      </button>
+      <button class="btn-confirmar" id="btn-confirmar" onclick="confirmarAgendamento()">✅ Confirmar agendamento</button>
     </div>
     <div class="tela-sucesso" id="tela-sucesso">
       <div class="icone-ok">🎉</div>
@@ -309,7 +274,6 @@
   let _dadosCancelamento = null;
   let _horariosDisponiveis = [];
 
-  // Carrega configurações do Firestore
   async function carregarConfiguracoes() {
     try {
       const snap = await getDoc(doc(db, 'config', 'servicos'));
@@ -327,7 +291,6 @@
     return NOMES_DIAS[new Date(2026, Number(m)-1, Number(d), 12).getDay()];
   }
 
-  // Inicializa
   (async function() {
     await carregarConfiguracoes();
     const mesHoje = new Date().getMonth() + 1;
@@ -366,8 +329,7 @@
       const porDia = {};
       for (let dia = 1; dia <= diasNoMes; dia++) {
         const data = new Date(2026, mes-1, dia, 12);
-        const diaSem = data.getDay();
-        if (diaSem === 0) continue;
+        if (data.getDay() === 0) continue;
         const dd = String(dia).padStart(2,'0');
         const mm = String(mes).padStart(2,'0');
         const dataStr = `${dd}/${mm}`;
@@ -530,20 +492,27 @@
     _dadosCancelamento = { id };
     document.getElementById('modal-cancelar').style.display = 'flex';
   };
+
   window.fecharModal = () => {
     document.getElementById('modal-cancelar').style.display = 'none';
     _dadosCancelamento = null;
   };
+
   window.confirmarCancelamento = async () => {
     if (!_dadosCancelamento) return;
+    // ✅ Salva o id antes de limpar _dadosCancelamento
+    const idParaCancelar = _dadosCancelamento.id;
     const btnSim = document.getElementById('modal-btn-sim');
     btnSim.disabled = true; btnSim.textContent = '⏳ Cancelando…';
     try {
-      await setDoc(doc(db, 'agendamentos', _dadosCancelamento.id), { cliente: '', servico: '', domicilio: '', whatsapp: '', email: '' });
+      await setDoc(doc(db, 'agendamentos', idParaCancelar), { cliente: '', servico: '', domicilio: '', whatsapp: '', email: '' });
       btnSim.disabled = false; btnSim.textContent = 'Sim, cancelar';
       fecharModal();
-      const card = document.getElementById(`card-${_dadosCancelamento.id}`);
-      if (card) { card.style.background = '#e8f5e9'; card.innerHTML = '<div style="color:#2e7d32;font-weight:700;font-size:14px">✅ Agendamento cancelado com sucesso!</div>'; }
+      const card = document.getElementById(`card-${idParaCancelar}`);
+      if (card) {
+        card.style.background = '#e8f5e9';
+        card.innerHTML = '<div style="color:#2e7d32;font-weight:700;font-size:14px">✅ Agendamento cancelado com sucesso!</div>';
+      }
     } catch(e) {
       btnSim.disabled = false; btnSim.textContent = 'Sim, cancelar';
       fecharModal(); alert('Erro: ' + e.message);
