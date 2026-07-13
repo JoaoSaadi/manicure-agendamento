@@ -520,14 +520,14 @@
         <div class="data-hora">📅 ${a.data} · ${a.diaSemana} · ⏰ ${a.horario}</div>
         <div class="servico">💅 ${a.servico}</div>
         ${a.domicilio === 'Sim' ? '<div class="domicilio">🏠 Atendimento a domicílio</div>' : ''}
-        <button class="btn-cancelar" onclick="cancelar('${a.id}','${a.cliente}')">🗑️ Cancelar agendamento</button>
+        <button class="btn-cancelar" onclick="cancelar('${a.id}')">🗑️ Cancelar agendamento</button>
       </div>`;
     });
     div.innerHTML = html;
   }
 
-  window.cancelar = (id, cliente) => {
-    _dadosCancelamento = { id, cliente };
+  window.cancelar = (id) => {
+    _dadosCancelamento = { id };
     document.getElementById('modal-cancelar').style.display = 'flex';
   };
   window.fecharModal = () => {
