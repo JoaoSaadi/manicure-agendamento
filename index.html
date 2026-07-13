@@ -22,7 +22,6 @@
     .header img { width: 160px; height: auto; margin-bottom: 4px; }
     .header h1 { color: #880e4f; font-size: 22px; margin: 6px 0 3px; }
     .header p  { color: #aaa; font-size: 14px; }
-
     .modos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
     .btn-modo {
       padding: 16px 8px; border: 1.5px solid #f8bbd0; border-radius: 12px;
@@ -32,7 +31,6 @@
     .btn-modo .icone-modo { font-size: 26px; display: block; margin-bottom: 6px; }
     .btn-modo .label-modo { font-size: 14px; font-weight: 700; color: #880e4f; display: block; }
     .btn-modo .sub-modo   { font-size: 12px; color: #888; display: block; margin-top: 2px; }
-
     .passos { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 24px; }
     .passo  { display: flex; flex-direction: column; align-items: center; gap: 4px; }
     .passo .bolinha {
@@ -47,11 +45,9 @@
     .passo.feito .rotulo  { color: #2e7d32; }
     .linha-passo { flex: 1; height: 2px; background: #f0f0f0; margin: 0 6px; margin-bottom: 18px; transition: background .3s; max-width: 48px; }
     .linha-passo.feita { background: #2e7d32; }
-
     .secao { display: none; }
     .secao.visivel { display: block; }
     .secao-titulo { font-size: 15px; font-weight: 700; color: #880e4f; margin-bottom: 12px; }
-
     .select-wrapper { position: relative; margin-bottom: 16px; }
     .select-mes {
       width: 100%; padding: 15px 44px 15px 16px;
@@ -61,19 +57,13 @@
       appearance: none; -webkit-appearance: none; outline: none; transition: border-color .2s;
     }
     .select-mes:focus { border-color: #ad1457; background: #fce4ec; }
-    .select-arrow {
-      position: absolute; right: 14px; top: 50%;
-      transform: translateY(-50%);
-      font-size: 18px; color: #ad1457; pointer-events: none;
-    }
-
+    .select-arrow { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #ad1457; pointer-events: none; }
     .btn-ver-horarios {
       width: 100%; padding: 15px; background: #ad1457; color: #fff;
       border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
       cursor: pointer; transition: background .2s;
     }
     .btn-ver-horarios:hover { background: #880e4f; }
-
     .grade-dias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .btn-dia {
       padding: 14px 6px; border: 1.5px solid #f8bbd0; border-radius: 10px;
@@ -83,7 +73,6 @@
     .btn-dia .num-dia   { font-size: 24px; font-weight: 700; color: #333; }
     .btn-dia .nome-dia  { font-size: 12px; color: #ad1457; margin-top: 2px; }
     .btn-dia .qtd-slots { font-size: 11px; color: #888; margin-top: 3px; }
-
     .grade-horarios { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .btn-hora {
       padding: 15px 8px; border: 1.5px solid #f8bbd0; border-radius: 10px;
@@ -91,7 +80,6 @@
       font-size: 15px; font-weight: 600; color: #333;
     }
     .btn-hora:hover, .btn-hora.selecionado { border-color: #ad1457; background: #fce4ec; color: #ad1457; }
-
     .grade-servicos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
     .btn-servico {
       padding: 16px 8px; border: 1.5px solid #f8bbd0; border-radius: 12px;
@@ -100,13 +88,8 @@
     .btn-servico:hover, .btn-servico.selecionado { border-color: #ad1457; background: #fce4ec; }
     .btn-servico .nome-serv  { font-size: 15px; font-weight: 700; color: #333; display: block; }
     .btn-servico .preco-serv { font-size: 14px; color: #ad1457; margin-top: 4px; display: block; }
-
-    .btn-voltar {
-      background: none; border: none; color: #ad1457; font-size: 14px;
-      cursor: pointer; padding: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 4px;
-    }
+    .btn-voltar { background: none; border: none; color: #ad1457; font-size: 14px; cursor: pointer; padding: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 4px; }
     .btn-voltar:hover { text-decoration: underline; }
-
     .campo { margin-bottom: 16px; }
     .campo label { display: block; font-size: 13px; color: #555; margin-bottom: 6px; font-weight: 700; }
     .campo input {
@@ -114,14 +97,10 @@
       border-radius: 10px; font-size: 15px; color: #333; background: #fafafa; transition: border-color .2s;
     }
     .campo input:focus { outline: none; border-color: #ad1457; background: #fff; }
-
     .resumo-agendamento { background: #fce4ec; border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
-    .resumo-agendamento .linha-resumo {
-      display: flex; justify-content: space-between; font-size: 14px; color: #555; margin-bottom: 4px;
-    }
+    .resumo-agendamento .linha-resumo { display: flex; justify-content: space-between; font-size: 14px; color: #555; margin-bottom: 4px; }
     .resumo-agendamento .linha-resumo:last-child { margin-bottom: 0; }
     .resumo-agendamento .linha-resumo strong { color: #880e4f; }
-
     .campo-domicilio {
       display: flex; align-items: center; justify-content: space-between;
       background: #f8f8f8; border-radius: 10px; padding: 14px; margin-bottom: 16px; border: 1.5px solid #f0f0f0;
@@ -131,88 +110,47 @@
     .toggle { position: relative; display: inline-block; width: 48px; height: 26px; }
     .toggle input { opacity: 0; width: 0; height: 0; }
     .toggle-slider { position: absolute; inset: 0; background: #ccc; border-radius: 26px; cursor: pointer; transition: background .2s; }
-    .toggle-slider::before {
-      content: ""; position: absolute; width: 20px; height: 20px;
-      left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: transform .2s;
-    }
+    .toggle-slider::before { content: ""; position: absolute; width: 20px; height: 20px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: transform .2s; }
     .toggle input:checked + .toggle-slider { background: #ad1457; }
     .toggle input:checked + .toggle-slider::before { transform: translateX(22px); }
-
-    .resumo-valor {
-      background: #f3e5f5; border-radius: 10px; padding: 14px;
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
-    }
+    .resumo-valor { background: #f3e5f5; border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .resumo-valor .label { font-size: 14px; color: #555; }
     .resumo-valor .valor { font-size: 22px; font-weight: 700; color: #6a1b9a; }
-
-    .btn-confirmar {
-      width: 100%; padding: 16px; background: #ad1457; color: #fff;
-      border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
-      cursor: pointer; transition: background .2s;
-    }
+    .btn-confirmar { width: 100%; padding: 16px; background: #ad1457; color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background .2s; }
     .btn-confirmar:hover    { background: #880e4f; }
     .btn-confirmar:disabled { background: #ccc; cursor: not-allowed; }
-
     .alerta { padding: 13px 14px; border-radius: 10px; font-size: 14px; margin-bottom: 14px; text-align: center; display: none; }
     .alerta.erro    { background: #ffebee; color: #c62828; }
     .alerta.sucesso { background: #e8f5e9; color: #2e7d32; }
     .loading { text-align: center; padding: 28px 0; color: #bbb; font-size: 15px; }
-
     .resultado-consulta { margin-top: 16px; }
     .card-consulta { background: #fce4ec; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
     .card-consulta .data-hora { font-size: 16px; font-weight: 700; color: #880e4f; }
     .card-consulta .servico   { font-size: 14px; color: #555; margin-top: 4px; }
     .card-consulta .domicilio { font-size: 13px; color: #6a1b9a; margin-top: 2px; }
     .nenhum-resultado { text-align: center; padding: 24px 0; color: #aaa; font-size: 14px; }
-
     .tela-sucesso { text-align: center; padding: 16px 0; display: none; }
     .tela-sucesso .icone-ok { font-size: 64px; }
     .tela-sucesso h2 { color: #2e7d32; margin: 10px 0 8px; font-size: 20px; }
     .tela-sucesso p  { color: #555; font-size: 15px; line-height: 1.6; }
     .btn-novo { margin-top: 18px; padding: 13px 28px; background: #ad1457; color: #fff; border: none; border-radius: 10px; font-size: 15px; cursor: pointer; }
-
-    .btn-cancelar {
-      width: 100%; margin-top: 10px; padding: 10px;
-      background: none; border: 1.5px solid #c62828;
-      border-radius: 8px; color: #c62828; font-size: 14px;
-      font-weight: 600; cursor: pointer; transition: all .15s;
-    }
+    .btn-cancelar { width: 100%; margin-top: 10px; padding: 10px; background: none; border: 1.5px solid #c62828; border-radius: 8px; color: #c62828; font-size: 14px; font-weight: 600; cursor: pointer; }
     .btn-cancelar:hover { background: #ffebee; }
-
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,.4);
-      display: flex; align-items: center; justify-content: center; z-index: 999;
-    }
-    .modal-box {
-      background: #fff; border-radius: 16px; padding: 28px 22px;
-      max-width: 320px; width: 90%; text-align: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,.2);
-    }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center; z-index: 999; }
+    .modal-box { background: #fff; border-radius: 16px; padding: 28px 22px; max-width: 320px; width: 90%; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.2); }
     .modal-box .modal-icone  { font-size: 40px; margin-bottom: 10px; }
     .modal-box .modal-titulo { font-size: 17px; font-weight: 700; color: #333; margin-bottom: 8px; }
     .modal-box .modal-texto  { font-size: 14px; color: #777; margin-bottom: 22px; line-height: 1.5; }
     .modal-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .modal-btn-cancelar {
-      padding: 13px; border: 1.5px solid #e0e0e0; border-radius: 10px;
-      background: #fff; color: #555; font-size: 15px; font-weight: 600; cursor: pointer;
-    }
+    .modal-btn-cancelar { padding: 13px; border: 1.5px solid #e0e0e0; border-radius: 10px; background: #fff; color: #555; font-size: 15px; font-weight: 600; cursor: pointer; }
     .modal-btn-cancelar:hover { background: #f5f5f5; }
-    .modal-btn-confirmar {
-      padding: 13px; border: none; border-radius: 10px;
-      background: #c62828; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
-    }
+    .modal-btn-confirmar { padding: 13px; border: none; border-radius: 10px; background: #c62828; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; }
     .modal-btn-confirmar:hover { background: #b71c1c; }
-
-    .btn-admin {
-      display: block; text-align: center; margin-top: 16px;
-      background: none; border: none; color: #ddd; font-size: 13px; cursor: pointer; padding: 6px;
-      width: 100%;
-    }
+    .btn-admin { display: block; text-align: center; margin-top: 16px; background: none; border: none; color: #ddd; font-size: 13px; cursor: pointer; padding: 6px; width: 100%; }
   </style>
 </head>
 <body>
 <div class="card">
-
   <div class="header">
     <img src="https://lh3.googleusercontent.com/d/18jG8CrOKr6H9wtJDwZYdtQlZXLH2jryZ" alt="Logo Manicure">
     <h1>Agende seu horário</h1>
@@ -280,7 +218,7 @@
       <div class="campo-domicilio">
         <div class="texto">
           <strong>Atendimento a domicílio?</strong>
-          <span>Taxa adicional de R$ 10,00</span>
+          <span>Taxa adicional de R$ <span id="taxa-dom-label">10</span>,00</span>
         </div>
         <label class="toggle">
           <input type="checkbox" id="chk-domicilio" onchange="atualizarValor()">
@@ -342,13 +280,11 @@
   </div>
 
   <button class="btn-admin" onclick="window.location.href='admin.html'">🔒</button>
-
 </div>
 
-<!-- Firebase SDK -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
-  import { getFirestore, collection, doc, getDocs, getDoc, setDoc, deleteDoc, query, where, orderBy } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+  import { getFirestore, collection, doc, getDocs, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyBto9cKCwXG4HsA3cM6JFpf9VHpSfCOIfI",
@@ -362,33 +298,45 @@
   const app = initializeApp(firebaseConfig);
   const db  = getFirestore(app);
 
-  // ── Configurações ──
-  const SERVICOS = { "Pé": 35, "Mão": 25, "Cutícula": 20, "Pé e Mão": 60 };
-  const TAXA_DOM = 10;
-  const HORARIOS = ["08:00–10:00","10:00–12:00","12:00–14:00","14:00–16:00","16:00–18:00"];
-  const MESES    = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  const HORARIOS   = ["08:00–10:00","10:00–12:00","12:00–14:00","14:00–16:00","16:00–18:00"];
+  const MESES      = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
   const NOMES_DIAS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
 
-  let _mesAtual = 0, _anoAtual = 2026;
+  let _servicos = { "Pé": 35, "Mão": 25, "Cutícula": 20, "Pé e Mão": 60 };
+  let _taxaDom  = 10;
+  let _mesAtual = 0;
   let _slotEscolhido = null, _servicoEscolhido = null;
   let _dadosCancelamento = null;
   let _horariosDisponiveis = [];
+
+  // Carrega configurações do Firestore
+  async function carregarConfiguracoes() {
+    try {
+      const snap = await getDoc(doc(db, 'config', 'servicos'));
+      if (snap.exists()) {
+        const data = snap.data();
+        _servicos = data.servicos || _servicos;
+        _taxaDom  = data.taxaDomicilio || _taxaDom;
+        document.getElementById('taxa-dom-label').textContent = _taxaDom;
+      }
+    } catch(e) { console.error('Erro ao carregar config:', e); }
+  }
 
   function nomeDia(dataStr) {
     const [d, m] = dataStr.split('/');
     return NOMES_DIAS[new Date(2026, Number(m)-1, Number(d), 12).getDay()];
   }
 
-  // Monta dropdown de meses
-  (function() {
+  // Inicializa
+  (async function() {
+    await carregarConfiguracoes();
     const mesHoje = new Date().getMonth() + 1;
     let html = '';
     for (let m = mesHoje; m <= 12; m++) {
       html += `<option value="${m}">${MESES[m-1]} 2026</option>`;
     }
     document.getElementById('sel-mes').innerHTML = html;
-    document.getElementById('sel-mes-consulta').innerHTML =
-      '<option value="0">Todos os meses</option>' + html;
+    document.getElementById('sel-mes-consulta').innerHTML = '<option value="0">Todos os meses</option>' + html;
   })();
 
   window.abrirAgendamento = () => {
@@ -412,24 +360,20 @@
     irPara(2);
     document.getElementById('txt-mes-escolhido').textContent = `${MESES[mes-1]} 2026`;
     document.getElementById('grade-dias-wrap').innerHTML = '<div class="loading">⏳ Buscando dias disponíveis…</div>';
-
     try {
       const hoje = new Date(); hoje.setHours(0,0,0,0);
       const diasNoMes = new Date(2026, mes, 0).getDate();
       const porDia = {};
-
       for (let dia = 1; dia <= diasNoMes; dia++) {
         const data = new Date(2026, mes-1, dia, 12);
         const diaSem = data.getDay();
         if (diaSem === 0) continue;
-
         const dd = String(dia).padStart(2,'0');
         const mm = String(mes).padStart(2,'0');
         const dataStr = `${dd}/${mm}`;
         if (data < hoje) continue;
-
         for (const hora of HORARIOS) {
-          const id = `2026-${mm}-${dd}_${hora.replace(':','').replace('–','-')}`;
+          const id   = `2026-${mm}-${dd}_${hora.replace(':','').replace('–','-')}`;
           const snap = await getDoc(doc(db, 'agendamentos', id));
           if (!snap.exists() || !snap.data().cliente) {
             if (!porDia[dataStr]) porDia[dataStr] = 0;
@@ -437,11 +381,9 @@
           }
         }
       }
-
       const datas = Object.keys(porDia).sort();
       if (!datas.length) {
-        document.getElementById('grade-dias-wrap').innerHTML =
-          '<p style="text-align:center;color:#aaa;padding:20px 0">Nenhum dia disponível neste mês.</p>';
+        document.getElementById('grade-dias-wrap').innerHTML = '<p style="text-align:center;color:#aaa;padding:20px 0">Nenhum dia disponível neste mês.</p>';
         return;
       }
       let html = '<div class="grade-dias">';
@@ -466,13 +408,11 @@
     document.querySelectorAll('.btn-dia').forEach(b => b.classList.remove('selecionado'));
     event.currentTarget.classList.add('selecionado');
     document.getElementById('txt-dia-escolhido').textContent = `${data} · ${diaSemana}`;
-
     const [dd, mm] = data.split('/');
     _horariosDisponiveis = [];
     let html = '';
-
     for (const hora of HORARIOS) {
-      const id = `2026-${mm}-${dd}_${hora.replace(':','').replace('–','-')}`;
+      const id   = `2026-${mm}-${dd}_${hora.replace(':','').replace('–','-')}`;
       const snap = await getDoc(doc(db, 'agendamentos', id));
       if (!snap.exists() || !snap.data().cliente) {
         _horariosDisponiveis.push({ id, data, diaSemana, horario: hora });
@@ -487,12 +427,11 @@
     _slotEscolhido = _horariosDisponiveis.find(s => s.id === id);
     document.querySelectorAll('.btn-hora').forEach(b => b.classList.remove('selecionado'));
     event.currentTarget.classList.add('selecionado');
-
     let html = '';
-    Object.entries(SERVICOS).forEach(([nome, preco]) => {
+    Object.entries(_servicos).forEach(([nome, preco]) => {
       html += `<button class="btn-servico" onclick="escolherServico('${nome}')">
         <span class="nome-serv">${nome}</span>
-        <span class="preco-serv">R$ ${preco.toFixed(2).replace('.',',')}</span>
+        <span class="preco-serv">R$ ${Number(preco).toFixed(2).replace('.',',')}</span>
       </button>`;
     });
     document.getElementById('grade-servicos').innerHTML = html;
@@ -510,8 +449,8 @@
   };
 
   window.atualizarValor = () => {
-    let p = _servicoEscolhido ? (SERVICOS[_servicoEscolhido] || 0) : 0;
-    if (document.getElementById('chk-domicilio').checked) p += TAXA_DOM;
+    let p = _servicoEscolhido ? (Number(_servicos[_servicoEscolhido]) || 0) : 0;
+    if (document.getElementById('chk-domicilio').checked) p += _taxaDom;
     document.getElementById('txt-valor').textContent = `R$ ${p.toFixed(2).replace('.',',')}`;
   };
 
@@ -520,10 +459,8 @@
     const dom  = document.getElementById('chk-domicilio').checked;
     if (!nome)              { mostrarAlerta('Por favor, informe seu nome.', 'erro'); return; }
     if (!_servicoEscolhido) { mostrarAlerta('Por favor, escolha um serviço.', 'erro'); return; }
-
     const btn = document.getElementById('btn-confirmar');
     btn.disabled = true; btn.textContent = '⏳ Salvando…';
-
     try {
       await setDoc(doc(db, 'agendamentos', _slotEscolhido.id), {
         cliente:   nome,
@@ -548,18 +485,16 @@
     const termo = document.getElementById('inp-busca-nome').value.trim();
     const mes   = Number(document.getElementById('sel-mes-consulta').value);
     if (!termo) { alert('Por favor, informe seu nome ou WhatsApp.'); return; }
-
     const div = document.getElementById('resultado-consulta');
     div.innerHTML = '<div class="loading">⏳ Buscando seus agendamentos…</div>';
-
     try {
       const snap = await getDocs(collection(db, 'agendamentos'));
       let resultados = [];
       snap.forEach(d => {
         const a = d.data();
         if (!a.cliente) return;
-        const nomeOk  = a.cliente.toLowerCase().includes(termo.toLowerCase());
-        const foneOk  = a.whatsapp && a.whatsapp.replace(/\D/g,'').includes(termo.replace(/\D/g,''));
+        const nomeOk = a.cliente.toLowerCase().includes(termo.toLowerCase());
+        const foneOk = a.whatsapp && a.whatsapp.replace(/\D/g,'').includes(termo.replace(/\D/g,''));
         if (!nomeOk && !foneOk) return;
         if (mes !== 0) {
           const [dd, mm] = a.data.split('/');
@@ -567,7 +502,6 @@
         }
         resultados.push({ ...a, id: d.id });
       });
-
       exibirResultados(resultados, termo);
     } catch(e) {
       div.innerHTML = `<p style="color:#c62828;text-align:center">Erro: ${e.message}</p>`;
@@ -596,12 +530,10 @@
     _dadosCancelamento = { id, cliente };
     document.getElementById('modal-cancelar').style.display = 'flex';
   };
-
   window.fecharModal = () => {
     document.getElementById('modal-cancelar').style.display = 'none';
     _dadosCancelamento = null;
   };
-
   window.confirmarCancelamento = async () => {
     if (!_dadosCancelamento) return;
     const btnSim = document.getElementById('modal-btn-sim');
@@ -611,10 +543,7 @@
       btnSim.disabled = false; btnSim.textContent = 'Sim, cancelar';
       fecharModal();
       const card = document.getElementById(`card-${_dadosCancelamento.id}`);
-      if (card) {
-        card.style.background = '#e8f5e9';
-        card.innerHTML = '<div style="color:#2e7d32;font-weight:700;font-size:14px">✅ Agendamento cancelado com sucesso!</div>';
-      }
+      if (card) { card.style.background = '#e8f5e9'; card.innerHTML = '<div style="color:#2e7d32;font-weight:700;font-size:14px">✅ Agendamento cancelado com sucesso!</div>'; }
     } catch(e) {
       btnSim.disabled = false; btnSim.textContent = 'Sim, cancelar';
       fecharModal(); alert('Erro: ' + e.message);
