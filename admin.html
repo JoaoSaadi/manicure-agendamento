@@ -23,6 +23,7 @@
     .header h1 { color: #880e4f; font-size: 22px; margin: 6px 0 3px; }
     .header p  { color: #aaa; font-size: 14px; }
 
+    /* Senha */
     .tela-senha { text-align: center; }
     .tela-senha .icone-lock { font-size: 52px; margin-bottom: 12px; }
     .tela-senha h2 { color: #880e4f; font-size: 20px; margin-bottom: 6px; }
@@ -40,9 +41,21 @@
     .btn-entrar:hover { background: #880e4f; }
     .erro-senha { color: #c62828; font-size: 14px; margin-top: 8px; display: none; }
 
+    /* Painel */
     .tela-painel { display: none; }
-    .secao-titulo { font-size: 15px; font-weight: 700; color: #880e4f; margin-bottom: 12px; }
 
+    /* Abas */
+    .abas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+    .btn-aba {
+      padding: 12px 8px; border: 1.5px solid #f8bbd0; border-radius: 12px;
+      background: #fff5f8; cursor: pointer; text-align: center; font-size: 14px;
+      font-weight: 700; color: #880e4f; transition: all .15s;
+    }
+    .btn-aba.ativa { background: #ad1457; color: #fff; border-color: #ad1457; }
+    .btn-aba:hover:not(.ativa) { border-color: #ad1457; background: #fce4ec; }
+
+    /* Agenda */
+    .secao-titulo { font-size: 15px; font-weight: 700; color: #880e4f; margin-bottom: 12px; }
     .select-wrapper { position: relative; margin-bottom: 16px; }
     .select-mes {
       width: 100%; padding: 15px 44px 15px 16px;
@@ -53,14 +66,12 @@
     }
     .select-mes:focus { border-color: #ad1457; background: #fce4ec; }
     .select-arrow { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #ad1457; pointer-events: none; }
-
     .btn-ver-dias {
       width: 100%; padding: 15px; background: #ad1457; color: #fff;
       border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
       cursor: pointer; transition: background .2s; margin-bottom: 20px;
     }
     .btn-ver-dias:hover { background: #880e4f; }
-
     .grade-dias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
     .btn-dia {
       padding: 14px 6px; border: 1.5px solid #f8bbd0; border-radius: 10px;
@@ -71,12 +82,10 @@
     .btn-dia .nome-dia { font-size: 12px; color: #ad1457; margin-top: 2px; }
     .btn-dia .qtd-ag   { font-size: 11px; color: #888; margin-top: 3px; }
     .btn-dia.tem-ag .num-dia { color: #ad1457; }
-
     .resumos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
     .resumo-card { background: #fce4ec; border-radius: 14px; padding: 16px 10px; text-align: center; }
     .resumo-card .num  { font-size: 26px; font-weight: 700; color: #880e4f; }
     .resumo-card .desc { font-size: 12px; color: #888; margin-top: 3px; }
-
     .lista-agendamentos { display: flex; flex-direction: column; gap: 10px; }
     .card-ag { border-radius: 12px; padding: 16px; border: 1.5px solid #f8bbd0; }
     .card-ag.ocupado { background: #fff5f8; border-color: #f48fb1; }
@@ -88,7 +97,6 @@
     .card-ag .ag-whatsapp { font-size: 13px; color: #6a1b9a; margin-top: 2px; }
     .badge-livre { display: inline-block; padding: 4px 12px; border-radius: 20px; background: #e0e0e0; color: #888; font-size: 12px; font-weight: 600; }
     .badge-dom   { display: inline-block; padding: 3px 8px; border-radius: 20px; background: #f3e5f5; color: #6a1b9a; font-size: 12px; margin-left: 6px; }
-
     .btn-cancel-adm {
       margin-top: 10px; padding: 9px 16px;
       background: none; border: 1.5px solid #c62828;
@@ -97,6 +105,53 @@
     }
     .btn-cancel-adm:hover { background: #ffebee; }
 
+    /* Configurações */
+    .config-section { margin-bottom: 24px; }
+    .config-section h3 { font-size: 15px; font-weight: 700; color: #880e4f; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1.5px solid #fce4ec; }
+    .servico-item {
+      display: flex; align-items: center; gap: 8px;
+      background: #fff5f8; border-radius: 10px; padding: 12px 14px; margin-bottom: 8px;
+      border: 1.5px solid #f8bbd0;
+    }
+    .servico-item .nome-s { flex: 1; font-size: 14px; font-weight: 600; color: #333; }
+    .servico-item input {
+      width: 80px; padding: 8px 10px; border: 1.5px solid #f48fb1;
+      border-radius: 8px; font-size: 14px; color: #333; background: #fff; text-align: center;
+    }
+    .servico-item input:focus { outline: none; border-color: #ad1457; }
+    .btn-remover {
+      padding: 6px 10px; background: none; border: 1.5px solid #c62828;
+      border-radius: 8px; color: #c62828; font-size: 12px; cursor: pointer;
+    }
+    .btn-remover:hover { background: #ffebee; }
+    .add-servico { display: flex; gap: 8px; margin-top: 8px; }
+    .add-servico input {
+      flex: 1; padding: 11px 13px; border: 1.5px solid #f48fb1;
+      border-radius: 10px; font-size: 14px; color: #333; background: #fff5f8; outline: none;
+    }
+    .add-servico input:focus { border-color: #ad1457; }
+    .add-servico input[type="number"] { width: 80px; flex: none; text-align: center; }
+    .btn-adicionar {
+      padding: 11px 16px; background: #ad1457; color: #fff;
+      border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer;
+    }
+    .btn-adicionar:hover { background: #880e4f; }
+    .campo-taxa { display: flex; align-items: center; gap: 10px; background: #fff5f8; border-radius: 10px; padding: 12px 14px; border: 1.5px solid #f8bbd0; }
+    .campo-taxa span { flex: 1; font-size: 14px; font-weight: 600; color: #333; }
+    .campo-taxa input { width: 80px; padding: 8px 10px; border: 1.5px solid #f48fb1; border-radius: 8px; font-size: 14px; color: #333; background: #fff; text-align: center; }
+    .campo-taxa input:focus { outline: none; border-color: #ad1457; }
+    .btn-salvar-config {
+      width: 100%; padding: 15px; background: #ad1457; color: #fff;
+      border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: background .2s; margin-top: 8px;
+    }
+    .btn-salvar-config:hover { background: #880e4f; }
+    .btn-salvar-config:disabled { background: #ccc; cursor: not-allowed; }
+    .msg-config { text-align: center; padding: 10px; border-radius: 10px; font-size: 14px; margin-top: 10px; display: none; }
+    .msg-config.sucesso { background: #e8f5e9; color: #2e7d32; }
+    .msg-config.erro    { background: #ffebee; color: #c62828; }
+
+    /* Modal */
     .modal-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,.4);
       display: flex; align-items: center; justify-content: center; z-index: 999;
@@ -121,6 +176,8 @@
     .btn-sair:hover { background: #f5f5f5; }
     .btn-voltar-site { width: 100%; margin-top: 10px; padding: 12px; background: none; border: 1.5px solid #f48fb1; border-radius: 10px; color: #ad1457; font-size: 14px; cursor: pointer; font-weight: 600; }
     .btn-voltar-site:hover { background: #fce4ec; }
+    .btn-voltar { background: none; border: none; color: #ad1457; font-size: 14px; cursor: pointer; padding: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 4px; }
+    .btn-voltar:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -131,6 +188,7 @@
     <p>Área exclusiva da proprietária</p>
   </div>
 
+  <!-- Tela senha -->
   <div class="tela-senha" id="tela-senha">
     <div class="icone-lock">🔒</div>
     <h2>Acesso restrito</h2>
@@ -142,41 +200,78 @@
     <div class="erro-senha" id="erro-senha">❌ Senha incorreta. Tente novamente.</div>
   </div>
 
+  <!-- Painel -->
   <div class="tela-painel" id="tela-painel">
-    <div id="sec-mes">
-      <div class="secao-titulo">📅 Qual mês você quer conferir?</div>
-      <div class="select-wrapper">
-        <select class="select-mes" id="adm-mes"></select>
-        <span class="select-arrow">▾</span>
-      </div>
-      <button class="btn-ver-dias" onclick="buscarDias()">Ver dias →</button>
+
+    <!-- Abas -->
+    <div class="abas">
+      <button class="btn-aba ativa" id="aba-agenda" onclick="trocarAba('agenda')">📅 Agenda</button>
+      <button class="btn-aba" id="aba-config" onclick="trocarAba('config')">⚙️ Configurações</button>
     </div>
 
-    <div id="sec-dias" style="display:none">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
-        <button class="btn-cancel-adm" style="margin-top:0" onclick="voltarMes()">← Voltar</button>
-        <div class="secao-titulo" style="margin:0">📆 <span id="txt-mes-adm"></span></div>
+    <!-- ABA AGENDA -->
+    <div id="conteudo-agenda">
+      <div id="sec-mes">
+        <div class="secao-titulo">📅 Qual mês você quer conferir?</div>
+        <div class="select-wrapper">
+          <select class="select-mes" id="adm-mes"></select>
+          <span class="select-arrow">▾</span>
+        </div>
+        <button class="btn-ver-dias" onclick="buscarDias()">Ver dias →</button>
       </div>
-      <div class="grade-dias" id="grade-dias-adm"></div>
+      <div id="sec-dias" style="display:none">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <button class="btn-cancel-adm" style="margin-top:0" onclick="voltarMes()">← Voltar</button>
+          <div class="secao-titulo" style="margin:0">📆 <span id="txt-mes-adm"></span></div>
+        </div>
+        <div class="grade-dias" id="grade-dias-adm"></div>
+      </div>
+      <div id="sec-lista" style="display:none">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <button class="btn-cancel-adm" style="margin-top:0" onclick="voltarDias()">← Voltar</button>
+          <div class="secao-titulo" style="margin:0">📋 <span id="txt-dia-adm"></span></div>
+        </div>
+        <div class="resumos">
+          <div class="resumo-card"><div class="num" id="res-total">—</div><div class="desc">Agendados</div></div>
+          <div class="resumo-card"><div class="num" id="res-livres">—</div><div class="desc">Livres</div></div>
+          <div class="resumo-card"><div class="num" id="res-valor">—</div><div class="desc">Faturamento</div></div>
+        </div>
+        <div class="lista-agendamentos" id="lista-ag"></div>
+      </div>
     </div>
 
-    <div id="sec-lista" style="display:none">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
-        <button class="btn-cancel-adm" style="margin-top:0" onclick="voltarDias()">← Voltar</button>
-        <div class="secao-titulo" style="margin:0">📋 <span id="txt-dia-adm"></span></div>
+    <!-- ABA CONFIGURAÇÕES -->
+    <div id="conteudo-config" style="display:none">
+
+      <div class="config-section">
+        <h3>💅 Serviços e preços</h3>
+        <div id="lista-servicos"></div>
+        <div class="add-servico">
+          <input type="text" id="novo-servico-nome" placeholder="Nome do serviço" />
+          <input type="number" id="novo-servico-preco" placeholder="R$" min="0" />
+          <button class="btn-adicionar" onclick="adicionarServico()">+</button>
+        </div>
       </div>
-      <div class="resumos">
-        <div class="resumo-card"><div class="num" id="res-total">—</div><div class="desc">Agendados</div></div>
-        <div class="resumo-card"><div class="num" id="res-livres">—</div><div class="desc">Livres</div></div>
-        <div class="resumo-card"><div class="num" id="res-valor">—</div><div class="desc">Faturamento</div></div>
+
+      <div class="config-section">
+        <h3>🏠 Taxa de domicílio</h3>
+        <div class="campo-taxa">
+          <span>Taxa adicional (R$)</span>
+          <input type="number" id="inp-taxa" min="0" placeholder="0" />
+        </div>
       </div>
-      <div class="lista-agendamentos" id="lista-ag"></div>
+
+      <button class="btn-salvar-config" id="btn-salvar-config" onclick="salvarConfiguracoes()">
+        💾 Salvar configurações
+      </button>
+      <div class="msg-config" id="msg-config"></div>
     </div>
 
     <button class="btn-sair" onclick="sair()">Sair do painel</button>
     <button class="btn-voltar-site" onclick="window.location.href='index.html'">← Voltar ao site</button>
   </div>
 
+  <!-- Modal cancelamento -->
   <div class="modal-overlay" id="modal-cancelar" style="display:none">
     <div class="modal-box">
       <div class="modal-icone">🗑️</div>
@@ -192,7 +287,7 @@
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
-  import { getFirestore, collection, doc, getDocs, setDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+  import { getFirestore, collection, doc, getDocs, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyBto9cKCwXG4HsA3cM6JFpf9VHpSfCOIfI",
@@ -207,14 +302,13 @@
   const db  = getFirestore(app);
 
   const SENHA    = "manicure2026";
-  const SERVICOS = { "Pé": 35, "Mão": 25, "Cutícula": 20, "Pé e Mão": 60 };
-  const TAXA_DOM = 10;
   const HORARIOS = ["08:00–10:00","10:00–12:00","12:00–14:00","14:00–16:00","16:00–18:00"];
   const MESES    = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
   const NOMES_DIAS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
 
+  let _servicos = {};
+  let _taxaDom  = 10;
   let _dadosCancelamento = null;
-  let _agendamentosDia   = [];
 
   function nomeDia(dataStr) {
     const [d, m] = dataStr.split('/');
@@ -231,11 +325,93 @@
     document.getElementById('adm-mes').innerHTML = html;
   })();
 
-  window.entrar = () => {
+  // Carrega configurações do Firestore
+  async function carregarConfiguracoes() {
+    try {
+      const snap = await getDoc(doc(db, 'config', 'servicos'));
+      if (snap.exists()) {
+        const data = snap.data();
+        _servicos = data.servicos || { "Pé": 35, "Mão": 25, "Cutícula": 20, "Pé e Mão": 60 };
+        _taxaDom  = data.taxaDomicilio || 10;
+      } else {
+        _servicos = { "Pé": 35, "Mão": 25, "Cutícula": 20, "Pé e Mão": 60 };
+        _taxaDom  = 10;
+      }
+      renderizarServicos();
+      document.getElementById('inp-taxa').value = _taxaDom;
+    } catch(e) {
+      console.error('Erro ao carregar configurações:', e);
+    }
+  }
+
+  function renderizarServicos() {
+    let html = '';
+    Object.entries(_servicos).forEach(([nome, preco]) => {
+      html += `<div class="servico-item">
+        <span class="nome-s">💅 ${nome}</span>
+        <input type="number" value="${preco}" min="0" onchange="atualizarPreco('${nome}', this.value)" />
+        <button class="btn-remover" onclick="removerServico('${nome}')">🗑️</button>
+      </div>`;
+    });
+    document.getElementById('lista-servicos').innerHTML = html;
+  }
+
+  window.atualizarPreco = (nome, valor) => {
+    _servicos[nome] = Number(valor);
+  };
+
+  window.removerServico = (nome) => {
+    if (confirm(`Remover o serviço "${nome}"?`)) {
+      delete _servicos[nome];
+      renderizarServicos();
+    }
+  };
+
+  window.adicionarServico = () => {
+    const nome  = document.getElementById('novo-servico-nome').value.trim();
+    const preco = Number(document.getElementById('novo-servico-preco').value);
+    if (!nome)  { alert('Digite o nome do serviço.'); return; }
+    if (!preco) { alert('Digite o preço do serviço.'); return; }
+    _servicos[nome] = preco;
+    renderizarServicos();
+    document.getElementById('novo-servico-nome').value  = '';
+    document.getElementById('novo-servico-preco').value = '';
+  };
+
+  window.salvarConfiguracoes = async () => {
+    const btn = document.getElementById('btn-salvar-config');
+    const msg = document.getElementById('msg-config');
+    btn.disabled = true; btn.textContent = '⏳ Salvando…';
+    _taxaDom = Number(document.getElementById('inp-taxa').value) || 10;
+    try {
+      await setDoc(doc(db, 'config', 'servicos'), {
+        servicos: _servicos,
+        taxaDomicilio: _taxaDom
+      });
+      btn.disabled = false; btn.textContent = '💾 Salvar configurações';
+      msg.className = 'msg-config sucesso'; msg.textContent = '✅ Configurações salvas com sucesso!';
+      msg.style.display = 'block';
+      setTimeout(() => { msg.style.display = 'none'; }, 3000);
+    } catch(e) {
+      btn.disabled = false; btn.textContent = '💾 Salvar configurações';
+      msg.className = 'msg-config erro'; msg.textContent = '❌ Erro ao salvar: ' + e.message;
+      msg.style.display = 'block';
+    }
+  };
+
+  window.trocarAba = (aba) => {
+    document.getElementById('conteudo-agenda').style.display = aba === 'agenda' ? 'block' : 'none';
+    document.getElementById('conteudo-config').style.display = aba === 'config' ? 'block' : 'none';
+    document.getElementById('aba-agenda').classList.toggle('ativa', aba === 'agenda');
+    document.getElementById('aba-config').classList.toggle('ativa', aba === 'config');
+  };
+
+  window.entrar = async () => {
     const senha = document.getElementById('inp-senha').value.trim();
     if (senha === SENHA) {
       document.getElementById('tela-senha').style.display = 'none';
       document.getElementById('tela-painel').style.display = 'block';
+      await carregarConfiguracoes();
     } else {
       document.getElementById('erro-senha').style.display = 'block';
       document.getElementById('inp-senha').value = '';
@@ -264,7 +440,6 @@
     document.getElementById('txt-mes-adm').textContent = `${MESES[mes-1]} 2026`;
     document.getElementById('grade-dias-adm').innerHTML = '<div class="loading">⏳ Buscando dias…</div>';
     mostrarSec('dias');
-
     try {
       const snap = await getDocs(collection(db, 'agendamentos'));
       const agendamentos = {};
@@ -278,7 +453,6 @@
         if (a.cliente) agendamentos[a.data].ocupados++;
       });
 
-      // Adiciona dias sem agendamentos
       const diasNoMes = new Date(2026, mes, 0).getDate();
       for (let dia = 1; dia <= diasNoMes; dia++) {
         const data = new Date(2026, mes-1, dia, 12);
@@ -321,45 +495,48 @@
 
     try {
       const [dd, mm] = data.split('/');
-      _agendamentosDia = [];
+      const agendamentos = {};
+      const snap = await getDocs(collection(db, 'agendamentos'));
+      snap.forEach(d => { agendamentos[d.id] = { ...d.data(), id: d.id }; });
+
+      const ocupados = [], livres = [];
+      let totalFat = 0;
 
       for (const hora of HORARIOS) {
-        const id   = `2026-${mm}-${dd}_${hora.replace(':','').replace('–','-')}`;
-        const snap = await getDocs(collection(db, 'agendamentos'));
-        let ag = null;
-        snap.forEach(d => { if (d.id === id) ag = { ...d.data(), id: d.id }; });
-        _agendamentosDia.push({ id, horario: hora, data, diaSemana, ...( ag || {} ) });
+        const id  = `2026-${mm}-${dd}_${hora.replace(':','').replace('–','-')}`;
+        const ag  = agendamentos[id];
+        if (ag && ag.cliente) {
+          ocupados.push({ ...ag, horario: hora });
+          totalFat += (_servicos[ag.servico] || 0) + (ag.domicilio === 'Sim' ? _taxaDom : 0);
+        } else {
+          livres.push({ id, horario: hora });
+        }
       }
-
-      const ocupados = _agendamentosDia.filter(a => a.cliente);
-      const livres   = _agendamentosDia.filter(a => !a.cliente);
-      let total = 0;
-      ocupados.forEach(a => {
-        total += (SERVICOS[a.servico] || 0) + (a.domicilio === 'Sim' ? TAXA_DOM : 0);
-      });
 
       document.getElementById('res-total').textContent  = ocupados.length;
       document.getElementById('res-livres').textContent = livres.length;
-      document.getElementById('res-valor').textContent  = total > 0 ? `R$ ${total},00` : '—';
+      document.getElementById('res-valor').textContent  = totalFat > 0 ? `R$ ${totalFat},00` : '—';
 
       let html = '';
-      _agendamentosDia.forEach(a => {
-        if (a.cliente) {
-          html += `<div class="card-ag ocupado" id="cadm-${a.id}">
-            <div class="ag-hora">${a.horario}</div>
-            <div class="ag-data">📅 ${a.data} · ${a.diaSemana}</div>
-            <div class="ag-cliente">👤 ${a.cliente}</div>
-            <div class="ag-servico">💅 ${a.servico}${a.domicilio === 'Sim' ? '<span class="badge-dom">🏠 Domicílio</span>' : ''}</div>
-            ${a.whatsapp ? `<div class="ag-whatsapp">📱 ${a.whatsapp}</div>` : ''}
-            <button class="btn-cancel-adm" onclick="cancelarAdmin('${a.id}')">🗑️ Cancelar</button>
+      for (const hora of HORARIOS) {
+        const id  = `2026-${mm}-${dd}_${hora.replace(':','').replace('–','-')}`;
+        const ag  = agendamentos[id];
+        if (ag && ag.cliente) {
+          html += `<div class="card-ag ocupado" id="cadm-${id}">
+            <div class="ag-hora">${hora}</div>
+            <div class="ag-data">📅 ${data} · ${diaSemana}</div>
+            <div class="ag-cliente">👤 ${ag.cliente}</div>
+            <div class="ag-servico">💅 ${ag.servico}${ag.domicilio === 'Sim' ? '<span class="badge-dom">🏠 Domicílio</span>' : ''}</div>
+            ${ag.whatsapp ? `<div class="ag-whatsapp">📱 ${ag.whatsapp}</div>` : ''}
+            <button class="btn-cancel-adm" onclick="cancelarAdmin('${id}')">🗑️ Cancelar</button>
           </div>`;
         } else {
           html += `<div class="card-ag livre">
-            <div class="ag-hora">${a.horario}</div>
+            <div class="ag-hora">${hora}</div>
             <span class="badge-livre">Horário livre</span>
           </div>`;
         }
-      });
+      }
       document.getElementById('lista-ag').innerHTML = html || '<div class="vazio">Nenhum horário encontrado.</div>';
     } catch(e) {
       document.getElementById('lista-ag').innerHTML = `<div class="vazio">Erro: ${e.message}</div>`;
@@ -386,8 +563,9 @@
       fecharModal();
       const card = document.getElementById(`cadm-${_dadosCancelamento.id}`);
       if (card) {
+        const hora = card.querySelector('.ag-hora').textContent;
         card.className = 'card-ag livre';
-        card.innerHTML = `<div class="ag-hora">${_dadosCancelamento.id.split('_')[1]}</div><span class="badge-livre">Horário livre</span>`;
+        card.innerHTML = `<div class="ag-hora">${hora}</div><span class="badge-livre">Horário livre</span>`;
       }
     } catch(e) {
       btnSim.disabled = false; btnSim.textContent = 'Sim, cancelar';
